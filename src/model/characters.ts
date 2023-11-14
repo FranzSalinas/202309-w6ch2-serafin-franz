@@ -1,5 +1,5 @@
 export type Character = {
-  id: string;
+  id: string | number;
   isAlive: boolean;
   message: string;
   name: string;

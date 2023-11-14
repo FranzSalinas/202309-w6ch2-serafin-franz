@@ -18,7 +18,7 @@ export function Card({ info }: Props) {
         <img
           src={`img/${info.name}.jpg`}
           alt={info.name + ' ' + info.family}
-          className="character__picture card-img-top"
+          className={`character__picture ${!info.isAlive && 'card-img-top'}`}
         />
         <div className="card-body">
           <h2 className="character__name card-title h4">
@@ -60,7 +60,7 @@ export function Card({ info }: Props) {
               <button className="character__action btn">habla</button>
               <button
                 className="character__action btn"
-                onClick={() => handleDeath(info.id)}
+                onClick={() => handleDeath(info.id as string)}
               >
                 muere
               </button>
