@@ -1,16 +1,11 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Character } from '../../model/characters';
+import { useEffect } from 'react';
+
 import { Card } from '../card/card';
-import { ApiRepo } from '../../services/api.repo';
+
+import { useCharacters } from '../../hooks/use.characters';
 
 export function List() {
-  const [characters, setCharacters] = useState<Character[]>([]);
-  const repo = useMemo(() => new ApiRepo(), []);
-
-  const loadCharacters = useCallback(async () => {
-    const loadedCharacters: Character = await repo.getCharacters();
-    setCharacters([loadedCharacters]);
-  }, [repo]);
+  const { loadCharacters, characters } = useCharacters();
 
   useEffect(() => {
     loadCharacters();
