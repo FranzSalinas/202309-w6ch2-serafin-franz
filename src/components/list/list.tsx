@@ -8,8 +8,8 @@ export function List() {
   const repo = useMemo(() => new ApiRepo(), []);
 
   const loadCharacters = useCallback(async () => {
-    const loadedCharacters: Character = await repo.getCharacters();
-    setCharacters([loadedCharacters]);
+    const loadedCharacters: Character[] = await repo.getCharacters();
+    setCharacters(loadedCharacters);
   }, [repo]);
 
   useEffect(() => {
